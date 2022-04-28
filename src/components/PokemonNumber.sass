@@ -1,0 +1,40 @@
+$height: 20px
+$width: 30px
+$border-width: $width / 2
+
+.pokemon__number
+  position: absolute
+  right: 8px
+  top: 14px
+  font-size: 14px
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 28px
+  height: 16px
+  background-color: var(--color-accent)
+  color: rgba(#fff, .8)
+
+  &::before,
+  &::after
+    width: 0
+    height: 0
+    position: absolute
+    left: 0
+    content: ""
+    border-left: 14px solid transparent
+    border-right: 14px solid transparent
+
+  &::before
+    border-bottom: 8px solid var(--color-accent)
+    top: -8px
+
+  &::after
+    border-top: 8px solid var(--color-accent)
+    bottom: -8px
+
+  // border-bottom: $border-top solid var(--color-accent)
+  // border-left: $border-left solid transparent
+  // border-right: $border-left solid transparent
+  // background-color: var(--color-accent)
+  // border-top: $border-top solid var(--color-accent)

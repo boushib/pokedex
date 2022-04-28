@@ -4,7 +4,7 @@ const SearchIcon = ({ size = 24 }) => (
     className="icon search-icon"
     stroke="var(--color-light)"
     fill="var(--color-light)"
-    stroke-width="0"
+    strokeWidth="0"
     viewBox="0 0 24 24"
     height="1em"
     width="1em"
