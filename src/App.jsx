@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import api from './api'
+import AppBar from './components/AppBar'
+import Logo from './components/Logo'
 import PokemonList from './components/PokemonList'
 import SearchBox from './components/SearchBox'
 
@@ -22,11 +24,14 @@ const App = () => {
 
   return (
     <div className="app container">
-      <SearchBox
-        searchQuery={searchQuery}
-        onChange={setSearchQuery}
-        placeholder="Search by name..."
-      />
+      <AppBar>
+        <Logo />
+        <SearchBox
+          searchQuery={searchQuery}
+          onChange={setSearchQuery}
+          placeholder="Search by name..."
+        />
+      </AppBar>
       <PokemonList pokemons={pokemons} />
     </div>
   )
