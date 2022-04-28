@@ -1,3 +1,4 @@
+import PokemonNumber from './PokemonNumber'
 import './PokemonCard.sass'
 
 const PokemonCard = ({ name, id }) => (
@@ -8,6 +9,7 @@ const PokemonCard = ({ name, id }) => (
       alt=""
     />
     <div className="pokemon-card__name">{name}</div>
+    <PokemonNumber num={id} />
   </div>
 )
 
