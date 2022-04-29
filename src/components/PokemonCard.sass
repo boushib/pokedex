@@ -1,11 +1,38 @@
 .pokemon-card
-  width: 220px
-  height: 220px
+  width: 224px
   background-color: rgba(#fff, .05)
   text-align: center
-  padding: 20px
+  padding: 24px
   border-radius: 12px
   position: relative
 
   &__name
-    font-size: 18px
+    font-size: 16px
+
+  &__type
+    &.rock
+      color: var(--color-rock)
+    &.ghost
+      color: var(--color-ghost)
+    &.electric
+      color: var(--color-electric)
+    &.bug
+      color: var(--color-bug)
+    &.poison
+      color: var(--color-poison)
+    &.normal
+      color: var(--color-normal)
+    &.fairy
+      color: var(--color-fairy)
+    &.fire
+      color: var(--color-fire)
+    &.grass
+      color: var(--color-grass)
+    &.water
+      color: var(--color-water)
+
+  &__image
+    width: 136px
+    height: 136px
+    object-fit: contain
+    margin-bottom: 8px

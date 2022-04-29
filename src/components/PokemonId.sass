@@ -1,0 +1,104 @@
+$height: 20px
+$width: 30px
+$border-width: $width / 2
+
+.pokemon-id
+  position: absolute
+  right: 16px
+  top: 22px
+  font-size: 14px
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 28px
+  height: 16px
+  background-color: var(--color-accent)
+  color: var(--color-dark)
+
+  &::before,
+  &::after
+    width: 0
+    height: 0
+    position: absolute
+    left: 0
+    content: ""
+    border-left: 14px solid transparent
+    border-right: 14px solid transparent
+
+  &::before
+    border-bottom: 8px solid var(--color-accent)
+    top: -8px
+
+  &::after
+    border-top: 8px solid var(--color-accent)
+    bottom: -8px
+
+  &--rock
+    background-color: var(--color-rock)
+    &::before
+      border-bottom-color: var(--color-rock)
+    &::after
+      border-top-color: var(--color-rock)
+
+  &--ghost
+    background-color: var(--color-ghost)
+    &::before
+      border-bottom-color: var(--color-ghost)
+    &::after
+      border-top-color: var(--color-ghost)
+
+  &--electric
+    background-color: var(--color-electric)
+    &::before
+      border-bottom-color: var(--color-electric)
+    &::after
+      border-top-color: var(--color-electric)
+
+  &--bug
+    background-color: var(--color-bug)
+    &::before
+      border-bottom-color: var(--color-bug)
+    &::after
+      border-top-color: var(--color-bug)
+
+  &--poison
+    background-color: var(--color-poison)
+    &::before
+      border-bottom-color: var(--color-poison)
+    &::after
+      border-top-color: var(--color-poison)
+
+  &--normal
+    background-color: var(--color-normal)
+    &::before
+      border-bottom-color: var(--color-normal)
+    &::after
+      border-top-color: var(--color-normal)
+
+  &--fairy
+    background-color: var(--color-fairy)
+    &::before
+      border-bottom-color: var(--color-fairy)
+    &::after
+      border-top-color: var(--color-fairy)
+
+  &--fire
+    background-color: var(--color-fire)
+    &::before
+      border-bottom-color: var(--color-fire)
+    &::after
+      border-top-color: var(--color-fire)
+
+  &--grass
+    background-color: var(--color-grass)
+    &::before
+      border-bottom-color: var(--color-grass)
+    &::after
+      border-top-color: var(--color-grass)
+
+  &--water
+    background-color: var(--color-water)
+    &::before
+      border-bottom-color: var(--color-water)
+    &::after
+      border-top-color: var(--color-water)
