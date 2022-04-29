@@ -6,6 +6,10 @@ Create an `.env` file in the root project directory and add this environement va
 
 ```REACT_APP_API_URL=https://pokeapi.co/api/v2```
 
+Install dependencies
+
+```yarn```
+
 Run the app in the development mode.
 
 ```yarn dev```
