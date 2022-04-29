@@ -5,7 +5,7 @@ const PokemonCard = ({ id, name, image, type }) => (
   <div className="pokemon-card">
     <img src={image} className="pokemon-card__image" alt="" />
     <div className="pokemon-card__name">
-      {name} - <span className={`pokemon-card__type ${type}`}>{type}</span>
+      {name} - <span className={`pokemogn-card__type ${type}`}>{type}</span>
     </div>
     <PokemonId id={id} type={type} />
   </div>
