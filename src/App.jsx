@@ -71,7 +71,7 @@ const App = () => {
       })
       setPagesTotal(Math.ceil(count / ITEMS_PER_PAGE))
       setPokemons([...pokemons, ...pokemonsData])
-      setAllPokemons(...pokemons, ...pokemonsData)
+      setAllPokemons([...pokemons, ...pokemonsData])
     } catch (error) {}
     setIsLoading(false)
   }
