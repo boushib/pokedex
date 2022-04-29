@@ -83,7 +83,7 @@ const App = () => {
         <SearchBox
           searchQuery={searchQuery}
           onChange={setSearchQuery}
-          placeholder="Search by name..."
+          placeholder="Search by name, type or Id..."
         />
       </AppBar>
       <div className="pokemon-list grid">
