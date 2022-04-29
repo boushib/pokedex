@@ -6,6 +6,7 @@ import PokemonList from './components/PokemonList'
 import SearchBox from './components/SearchBox'
 
 const App = () => {
+  const [allPokemons, setAllPokemons] = useState([])
   const [pokemons, setPokemons] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -13,6 +14,19 @@ const App = () => {
     fetchPokemons()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(() => {
+    setPokemons(
+      allPokemons.filter(pokemon => {
+        return (
+          pokemon.name.includes(searchQuery) ||
+          pokemon.type.includes(searchQuery) ||
+          pokemon.id.toString().includes(searchQuery)
+        )
+      })
+    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery])
 
   const fetchPokemons = async () => {
     const { data } = await api.get(`/pokemon?offset=0&limit=20`)
@@ -22,13 +36,13 @@ const App = () => {
     )
     const pokemons = res.map(r => {
       const data = r.data
-      console.log(data)
       const { id, name, types, sprites } = data
       const image = sprites.other.dream_world.front_default
       const type = types[0].type.name
       return { id, name, image, type }
     })
     setPokemons(pokemons)
+    setAllPokemons(pokemons)
   }
 
   return (
