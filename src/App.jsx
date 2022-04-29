@@ -33,7 +33,7 @@ const App = () => {
   )
 
   useEffect(() => {
-    if (page <= pagesTotal || pagesTotal === 0) {
+    if ((page <= pagesTotal || pagesTotal === 0) && searchQuery === '') {
       fetchPokemons()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -93,7 +93,7 @@ const App = () => {
             image={image}
             id={id}
             type={type}
-            ref={index + 1 === pokemons.length ? lastCardRef : undefined}
+            ref={index + 1 === allPokemons.length ? lastCardRef : undefined}
             key={name}
           />
         ))}
