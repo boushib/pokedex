@@ -3,8 +3,8 @@ import PokemonCard from './PokemonCard'
 const PokemonList = ({ pokemons }) => {
   return (
     <div className="pokemon-lis grid">
-      {pokemons.map(({ name, url }, i) => (
-        <PokemonCard name={name} id={i + 1} key={name} />
+      {pokemons.map(({ name, image, id, type }) => (
+        <PokemonCard name={name} image={image} id={id} type={type} key={name} />
       ))}
     </div>
   )
