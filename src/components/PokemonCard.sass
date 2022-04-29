@@ -6,9 +6,11 @@
   border-radius: 12px
   position: relative
   transform-style: preserve-3d
+  transition: all .5s ease-in-out
 
   &:hover
-    animation: cardAnimation 3s
+    animation: cardAnimation 2s forwards
+    background-color: rgba(#fff, .1)
 
   &__name
     font-size: 16px
@@ -44,8 +46,6 @@
   @keyframes cardAnimation
     0%, 100%
       transform: translate(0) rotate(0)
-    20%, 80%
-      transform: translateZ(20px) rotate(0)
     35%
       transform: translateZ(20px) rotateX(3deg)
     50%
