@@ -1,18 +1,19 @@
 # Pokedex
 
-## Available Scripts
+## Dev Environement
 
-In the project directory, you can run:
+Create an `.env` file in the root project directory and add this environement variable to it:
 
-### `yarn dev`
+```REACT_APP_API_URL=https://pokeapi.co/api/v2```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Run the app in the development mode.
 
-### `yarn test`
+```yarn dev```
 
-Launches the test runner in the interactive watch mode.\
+Run tests
 
-### `yarn build`
+```yarn test```
 
-Builds the app for production to the `build` folder.
+Build the app for production.
+
+```yarn build```
