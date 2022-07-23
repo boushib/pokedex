@@ -2,23 +2,26 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import api from './api'
 import AppBar from './components/AppBar'
 import Logo from './components/Logo'
-import PokemonCard from './components/PokemonCard'
+import PokemonCard from './components/PokemonCard/'
 import SearchBox from './components/SearchBox'
+import { Pokemon } from './models'
 
 const ITEMS_PER_PAGE = 20
 
 const App = () => {
-  const [allPokemons, setAllPokemons] = useState([])
-  const [pokemons, setPokemons] = useState([])
+  const [allPokemons, setAllPokemons] = useState<Array<Pokemon>>([])
+  const [pokemons, setPokemons] = useState<Array<Pokemon>>([])
   const [searchQuery, setSearchQuery] = useState('')
   const [page, setPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
   const [pagesTotal, setPagesTotal] = useState(0)
-  const observer = useRef()
+  const observer = useRef<IntersectionObserver>()
   const lastCardRef = useCallback(
-    node => {
+    (node: any) => {
       if (!isLoading) {
-        if (observer.current) observer.current.disconnect()
+        if (observer.current) {
+          observer.current.disconnect()
+        }
 
         observer.current = new IntersectionObserver(entries => {
           if (entries[0].isIntersecting && page <= pagesTotal) {
@@ -60,7 +63,7 @@ const App = () => {
       )
       const { results, count } = data
       const res = await Promise.all(
-        results.map(r => api.get(`/pokemon/${r.name}`))
+        results.map((r: any) => api.get(`/pokemon/${r.name}`))
       )
       const pokemonsData = res.map(r => {
         const data = r.data

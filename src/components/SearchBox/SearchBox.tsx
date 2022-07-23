@@ -1,7 +1,13 @@
-import SearchIcon from '../icons/Search'
+import SearchIcon from '../../icons/Search'
 import './SearchBox.sass'
 
-const SearchBox = ({ searchQuery, onChange, placeholder }) => {
+interface Props {
+  searchQuery: string
+  onChange: (query: string) => void
+  placeholder: string
+}
+
+const SearchBox = ({ searchQuery, onChange, placeholder }: Props) => {
   return (
     <div className="search-box">
       <input
