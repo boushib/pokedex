@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
-import { GENERATIONS, titleCase } from '@/lib/pokemon'
+import { GENERATIONS, titleCase } from '@/lib/format'
 import { TYPE_COLORS, TYPES } from '@/lib/types'
 
 import styles from './Browser.module.scss'

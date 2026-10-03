@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 import { ogFont } from '@/lib/og'
-import { artwork, dexNumber, getPokemon, STATS, titleCase } from '@/lib/pokemon'
+import { artworkPng, dexNumber, getPokemon, STATS, titleCase } from '@/lib/pokemon'
 import { TYPE_COLORS } from '@/lib/types'
 
 export const alt = 'Pokémon card with artwork, types and base stats'
@@ -40,7 +40,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 470 }}>
-          <img src={artwork(p.id)} width={450} height={450} alt="" />
+          <img src={artworkPng(p.id)} width={450} height={450} alt="" />
         </div>
       </div>
     ),

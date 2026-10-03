@@ -133,6 +133,20 @@ async function main() {
     }
   })
 
+  // Which ones have vector artwork (the "dream-world" SVGs); the rest fall back to the official PNG
+  const SVG = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world'
+  const noVector: number[] = []
+  for (let i = 0; i < pokemon.length; i += 25) {
+    await Promise.all(
+      pokemon.slice(i, i + 25).map(async (p) => {
+        const res = await fetch(`${SVG}/${p.id}.svg`, { method: 'HEAD' })
+        if (!res.ok) noVector.push(p.id)
+      }),
+    )
+  }
+  noVector.sort((a, b) => a - b)
+  console.log(`vector artwork: ${pokemon.length - noVector.length}`)
+
   // Abilities used by those Pokémon
   const slugs = [...new Set(pokemon.flatMap((p) => p.abilities.map((a) => a.slug)))]
   const abilityData = await query<{
@@ -177,6 +191,7 @@ async function main() {
   console.log(`types: ${Object.keys(chart).length}`)
 
   writeFileSync(path.join(OUT, 'pokemon.json'), JSON.stringify(pokemon))
+  writeFileSync(path.join(OUT, 'no-vector.json'), JSON.stringify(noVector) + '\n')
   writeFileSync(path.join(OUT, 'abilities.json'), JSON.stringify(abilities))
   writeFileSync(path.join(OUT, 'types.json'), JSON.stringify({ order: typeData.pokemon_v2_type.map((t) => t.name), chart }))
   writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ source: 'https://pokeapi.co', fetchedAt: new Date().toISOString(), count: pokemon.length }, null, 2) + '\n')

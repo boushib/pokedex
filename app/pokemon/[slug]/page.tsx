@@ -9,7 +9,7 @@ import { JsonLd } from '@/components/JsonLd'
 import { StatBars } from '@/components/StatBars'
 import { TypeBadge } from '@/components/TypeBadge'
 import { evolutionTree } from '@/lib/evolution'
-import { abilities, allPokemon, artwork, dexNumber, GENERATIONS, getPokemon, neighbours, titleCase } from '@/lib/pokemon'
+import { abilities, allPokemon, artwork, artworkPng, dexNumber, GENERATIONS, getPokemon, neighbours, titleCase } from '@/lib/pokemon'
 import { absolute, site } from '@/lib/site'
 import { formatMultiplier, matchups, TYPE_COLORS } from '@/lib/types'
 
@@ -56,8 +56,8 @@ export default async function PokemonPage(props: PageProps<'/pokemon/[slug]'>) {
           name: `${p.name} ${dexNumber(p.id)}`,
           description: describe(p),
           url: absolute(`/pokemon/${p.slug}`),
-          primaryImageOfPage: artwork(p.id),
-          about: { '@type': 'Thing', name: p.name, description: p.flavor, image: artwork(p.id) },
+          primaryImageOfPage: artworkPng(p.id),
+          about: { '@type': 'Thing', name: p.name, description: p.flavor, image: artworkPng(p.id) },
           breadcrumb: {
             '@type': 'BreadcrumbList',
             itemListElement: [
@@ -72,7 +72,8 @@ export default async function PokemonPage(props: PageProps<'/pokemon/[slug]'>) {
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.art}>
-            <Image src={artwork(p.id)} alt={`Official artwork of ${p.name}`} width={475} height={475} priority sizes="(max-width: 760px) 70vw, 420px" />
+            {/* SVGs skip optimization anyway; for the PNG fallback, re-encoding bands the artwork's soft shading */}
+            <Image src={artwork(p.id)} className="artwork" alt={`Official artwork of ${p.name}`} width={475} height={475} priority unoptimized />
           </div>
           <div className={styles.intro}>
             <p className={styles.number}>

@@ -227,3 +227,13 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+// Pokémon artwork in a square box; the SVGs come in any proportion and cropped tight, so they get some room
+.artwork {
+  aspect-ratio: 1;
+  object-fit: contain;
+
+  &[src$='.svg'] {
+    padding: 6%;
+  }
+}

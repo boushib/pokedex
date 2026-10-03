@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 
 import { MARK_DATA_URI } from '@/lib/brand'
 import { ogFont } from '@/lib/og'
-import { artwork } from '@/lib/pokemon'
+import { artworkPng } from '@/lib/pokemon'
 
 export const alt = 'Pokédex: every Pokémon, with stats, evolutions and matchups'
 export const size = { width: 1200, height: 630 }
@@ -25,7 +25,7 @@ export default async function Image() {
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', width: 520, gap: 8, alignContent: 'center', justifyContent: 'center' }}>
           {FEATURED.map((id) => (
-            <img key={id} src={artwork(id)} width={160} height={160} alt="" />
+            <img key={id} src={artworkPng(id)} width={160} height={160} alt="" />
           ))}
         </div>
       </div>

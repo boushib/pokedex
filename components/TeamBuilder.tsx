@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
 import { TEAM_SIZE, useCollection } from '@/lib/collection'
-import { artwork, dexNumber, titleCase } from '@/lib/pokemon'
+import { artwork, dexNumber, titleCase } from '@/lib/format'
 import { defenseProfile, TYPES } from '@/lib/types'
 
 import type { BrowseItem } from './Browser'
@@ -65,7 +65,7 @@ export function TeamBuilder({ items }: { items: BrowseItem[] }) {
           p ? (
             <li key={p.id} className={styles.slot}>
               <Link href={`/pokemon/${p.slug}`} className={styles.member}>
-                <Image src={artwork(p.id)} alt="" width={120} height={120} />
+                <Image src={artwork(p.id)} className="artwork" alt="" width={120} height={120} />
                 <span className={styles.num}>{dexNumber(p.id)}</span>
                 <strong>{p.name}</strong>
                 <span className={styles.types}>

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 import type { CompareItem } from '@/lib/list'
-import { artwork, dexNumber, STATS, titleCase } from '@/lib/pokemon'
+import { artwork, dexNumber, STATS, titleCase } from '@/lib/format'
 import { effectiveness, formatMultiplier } from '@/lib/types'
 
 import styles from './Compare.module.scss'
@@ -41,7 +41,7 @@ export function Compare({ items }: { items: CompareItem[] }) {
             Change
           </button>
           <Link href={`/pokemon/${p.slug}`}>
-            <Image src={artwork(p.id)} alt="" width={180} height={180} />
+            <Image src={artwork(p.id)} className="artwork" alt="" width={180} height={180} />
           </Link>
           <span className={styles.num}>{dexNumber(p.id)}</span>
           <Link href={`/pokemon/${p.slug}`} className={`display ${styles.name}`}>

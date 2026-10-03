@@ -12,7 +12,7 @@ function Stage({ node, current }: { node: EvolutionNode; current: number }) {
   return (
     <li className={styles.stage}>
       <Link href={`/pokemon/${p.slug}`} className={`${styles.mon} ${p.id === current ? styles.current : ''}`} aria-current={p.id === current ? 'page' : undefined}>
-        <Image src={artwork(p.id)} alt="" width={96} height={96} />
+        <Image src={artwork(p.id)} className="artwork" alt="" width={96} height={96} />
         <span className={styles.num}>{dexNumber(p.id)}</span>
         <span className={styles.name}>{p.name}</span>
         <span className={styles.types}>

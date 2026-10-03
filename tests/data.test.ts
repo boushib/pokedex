@@ -18,7 +18,8 @@ describe('the snapshot', () => {
   it('formats numbers, slugs and artwork links', () => {
     expect(dexNumber(25)).toBe('#0025')
     expect(titleCase('water-stone')).toBe('Water Stone')
-    expect(artwork(25)).toMatch(/official-artwork\/25\.png$/)
+    expect(artwork(25)).toMatch(/dream-world\/25\.svg$/)
+    expect(artwork(905)).toMatch(/official-artwork\/905\.png$/)
   })
 })
 

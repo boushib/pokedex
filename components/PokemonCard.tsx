@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
 
-import { artwork, dexNumber } from '@/lib/pokemon'
+import { artwork, dexNumber } from '@/lib/format'
 import { TYPE_COLORS } from '@/lib/types'
 
 import styles from './PokemonCard.module.scss'
@@ -46,7 +46,7 @@ export function PokemonCard({ pokemon, priority = false }: { pokemon: CardData; 
     >
       <span className={styles.number}>{dexNumber(pokemon.id)}</span>
       <div className={styles.art}>
-        <Image src={artwork(pokemon.id)} alt="" width={200} height={200} sizes="(max-width: 600px) 40vw, 180px" priority={priority} />
+        <Image src={artwork(pokemon.id)} className="artwork" alt="" width={200} height={200} sizes="(max-width: 600px) 40vw, 180px" priority={priority} />
       </div>
       <div className={styles.info}>
         <h2 className={`display ${styles.name}`}>{pokemon.name}</h2>

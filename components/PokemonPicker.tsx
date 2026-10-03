@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useId, useMemo, useRef, useState } from 'react'
 
-import { artwork, dexNumber } from '@/lib/pokemon'
+import { artwork, dexNumber } from '@/lib/format'
 
 import type { BrowseItem } from './Browser'
 import styles from './PokemonPicker.module.scss'
@@ -83,7 +83,7 @@ export function PokemonPicker({ items, onPick, placeholder = 'Find a Pokémon', 
               onMouseEnter={() => setActive(i)}
               onClick={() => pick(p)}
             >
-              <Image src={artwork(p.id)} alt="" width={36} height={36} />
+              <Image src={artwork(p.id)} className="artwork" alt="" width={36} height={36} />
               <span className={styles.name}>{p.name}</span>
               <span className={styles.num}>{dexNumber(p.id)}</span>
             </li>
