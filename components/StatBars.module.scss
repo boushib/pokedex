@@ -65,12 +65,6 @@
   color: #4fd1bf;
 }
 
-@media (prefers-color-scheme: dark) {
-  :global(:root:not([data-theme='light'])) .good {
-    color: #4fd1bf;
-  }
-}
-
 @keyframes grow {
   from {
     transform: scaleX(0);
