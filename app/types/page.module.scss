@@ -1,25 +1,251 @@
-.head {
-  padding: 48px 0 28px;
+.page {
+  overflow-x: clip;
+}
+
+// ── Hero ─────────────────────────────────────────────
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(700px 420px at 78% 50%, color-mix(in srgb, #7a5cff 14%, transparent), transparent 70%),
+    radial-gradient(600px 400px at 10% 0%, color-mix(in srgb, var(--brand) 10%, transparent), transparent 70%),
+    var(--bg);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(color-mix(in srgb, var(--text) 14%, transparent) 1px, transparent 1.5px);
+    background-size: 22px 22px;
+    mask-image: radial-gradient(ellipse 50% 70% at 78% 50%, #000 10%, transparent 75%);
+    pointer-events: none;
+  }
+}
+
+.heroInner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.intro > * {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.08}s;
+    }
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .title {
-  font-size: clamp(32px, 4.5vw, 48px);
+  margin-top: 16px;
+  font-size: clamp(44px, 7vw, 76px);
   font-weight: 800;
+  line-height: 0.95;
 }
 
 .lead {
-  max-width: 620px;
-  margin-top: 10px;
+  max-width: 520px;
+  margin-top: 16px;
   font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+
+  div {
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--surface) 75%, transparent);
+    backdrop-filter: blur(10px);
+
+    &:nth-child(1) dd {
+      color: #23a26b;
+    }
+
+    &:nth-child(2) dd {
+      color: #e2483d;
+    }
+  }
+
+  dt {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  dd {
+    margin: 2px 0 0;
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+}
+
+// The orbit: a ring of 18 type orbs turning slowly around a center
+
+.orbit {
+  --r: 170px;
+  position: relative;
+  width: calc(var(--r) * 2 + 60px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+
+  > * {
+    grid-area: 1 / 1;
+  }
+}
+
+.orbitRing {
+  width: calc(var(--r) * 2);
+  height: calc(var(--r) * 2);
+  border: 1px dashed color-mix(in srgb, var(--text) 18%, transparent);
+  border-radius: 50%;
+}
+
+.orbitRing2 {
+  width: calc(var(--r) * 1.2);
+  height: calc(var(--r) * 1.2);
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #e8613c, #f2c12e, #4caf50, #4fc3d8, #3d8fe0, #5a63d6, #9b5ac2, #e687d0, #e8613c);
+  opacity: 0.22;
+  filter: blur(28px);
+  animation: spin 18s linear infinite;
+}
+
+.orbitCenter {
+  display: grid;
+  place-items: center;
+  width: 120px;
+  height: 120px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-align: center;
+
+  strong {
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  span {
+    margin-top: -18px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+}
+
+.spinner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: spin 80s linear infinite;
+}
+
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: rotate(var(--a)) translateY(calc(var(--r) * -1)) rotate(calc(var(--a) * -1));
+
+  > span {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    margin: -21px 0 0 -21px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--t) 70%, #fff), var(--t) 70%);
+    color: #fff;
+    box-shadow:
+      inset 0 -3px 6px rgb(0 0 0 / 0.2),
+      0 6px 16px color-mix(in srgb, var(--t) 45%, transparent);
+    animation: spin 80s linear infinite reverse;
+  }
+}
+
+// ── Body ─────────────────────────────────────────────
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.chartCard {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.chartHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.note {
+  max-width: 520px;
+  margin-top: 4px;
+  font-size: 14px;
   color: var(--muted);
 }
 
 .legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 20px;
-  margin-top: 18px;
-  font-size: 14px;
+  gap: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--muted);
 
   li {
@@ -33,84 +259,197 @@
   display: inline-grid;
   place-items: center;
   width: 34px;
-  height: 26px;
-  border-radius: 6px;
+  height: 24px;
+  border-radius: 7px;
   font-size: 12px;
   font-weight: 800;
 }
 
 .scroll {
   overflow-x: auto;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
+  margin: 0 -8px;
+  padding: 0 8px 4px;
 }
 
 .chart {
   border-collapse: separate;
   border-spacing: 3px;
   margin: 0 auto;
-  padding: 10px;
   font-size: 12px;
 
   td {
     width: 44px;
-    height: 34px;
-    border-radius: 6px;
-    background: var(--raised);
+    height: 36px;
+    padding: 0;
+    border-radius: 8px;
     text-align: center;
     font-weight: 800;
     font-variant-numeric: tabular-nums;
-  }
+    transition:
+      transform 0.15s,
+      box-shadow 0.15s,
+      opacity 0.15s;
 
-  // Highlight the row being read
-  tr:hover td {
-    outline: 1px solid var(--line);
-  }
-}
-
-.corner {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 54px;
-  padding: 4px 8px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--faint);
-  text-align: left;
-}
-
-.colHead {
-  border-radius: 6px;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 800;
-  text-shadow: 0 1px 1px rgb(0 0 0 / 0.25);
-
-  span {
-    display: block;
-    padding: 6px 0;
+    &:hover {
+      transform: scale(1.15);
+      z-index: 2;
+      position: relative;
+      box-shadow: 0 6px 18px rgb(0 0 0 / 0.25);
+    }
   }
 }
 
-.rowHead {
-  padding-right: 8px;
-  text-align: left;
-  white-space: nowrap;
+.plain {
+  background: var(--raised);
+  opacity: 0.6;
 }
 
 .super {
-  background: #4caf50 !important;
+  background: linear-gradient(160deg, #3ccf87, #1f9d62);
   color: #fff;
+  box-shadow: 0 2px 8px rgb(35 162 107 / 0.3);
 }
 
 .weak {
-  background: #f0a14a !important;
+  background: linear-gradient(160deg, #ff7a63, #d9412f);
   color: #fff;
+  box-shadow: 0 2px 8px rgb(226 72 61 / 0.25);
 }
 
 .none {
-  background: #2d313d !important;
+  background: var(--text);
+  color: var(--bg);
+}
+
+// Crosshair: dim everything but the hovered row and column
+.chart:has(td:hover) td {
+  opacity: 0.3;
+}
+
+.chart tr:has(td:hover) td {
+  opacity: 1;
+}
+
+@for $c from 2 through 19 {
+  .chart:has(td:nth-child(#{$c}):hover) td:nth-child(#{$c}) {
+    opacity: 1;
+  }
+
+  .chart:has(td:nth-child(#{$c}):hover) th:nth-child(#{$c}) .colOrb {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--t) 30%, transparent);
+  }
+}
+
+.chart tr:has(td:hover) .rowHead {
+  color: var(--t);
+}
+
+.corner {
+  vertical-align: bottom;
+  padding: 0 10px 6px 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: right;
+  color: var(--faint);
+
+  span {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+.colHead {
+  vertical-align: bottom;
+  padding-bottom: 6px;
+}
+
+.colOrb {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--t) 70%, #fff), var(--t) 70%);
   color: #fff;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.colName {
+  display: block;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin: 6px auto 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.rowHead {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  padding-right: 10px;
+  background: var(--surface);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.rowOrb {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--t);
+  color: #fff;
+  vertical-align: middle;
+}
+
+// ── Motion ───────────────────────────────────────────
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@media (max-width: 960px) {
+  .heroInner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .orbit {
+    --r: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chartCard {
+    padding: 18px 12px;
+  }
+
+  .orbit {
+    --r: 112px;
+
+    .planet > span {
+      width: 34px;
+      height: 34px;
+      margin: -17px 0 0 -17px;
+    }
+  }
 }
