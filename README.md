@@ -59,9 +59,10 @@ I first built this in April 2022 with Create React App, fetching PokéAPI from t
 | `pokemon.json` | Every species: name, category, generation, types, stats, abilities, size, evolution details and Pokédex entry |
 | `abilities.json` | Name and effect of every ability those Pokémon have |
 | `types.json` | The 18 types and the damage multiplier for each pairing |
+| `no-vector.json` | The few Pokémon without vector artwork |
 | `meta.json` | Where and when the snapshot was taken |
 
-The snapshot is committed, so the site builds without any network access. Run `pnpm data` again when new Pokémon come out. Artwork is loaded from the [PokeAPI/sprites](https://github.com/PokeAPI/sprites) repository.
+The snapshot is committed, so the site builds without any network access. Run `pnpm data` again when new Pokémon come out. Artwork comes from the [PokeAPI/sprites](https://github.com/PokeAPI/sprites) repository: SVGs, sharp at any size, for the 936 Pokémon that have them, and the official PNG for the rest. Share images and structured data use the PNG.
 
 ## Getting started
 
@@ -92,7 +93,8 @@ When deploying, set `SITE_URL` (e.g. `https://pokedex.example.com`) so canonical
 ```
 app/                  Pages: browse, Pokémon, type chart, team, compare, favorites, plus sitemap, robots and share images
 components/           Cards, filters, stat bars, evolution chain, team builder, compare and the site shell
-lib/pokemon.ts        Reading the snapshot: lookups, generations, number and name formatting
+lib/pokemon.ts        Reading the snapshot: lookups and neighbours
+lib/format.ts         Numbers, names, stats, generations and artwork links, safe to use in the browser
 lib/types.ts          Type colors, the damage chart and matchups
 lib/evolution.ts      Evolution families and how each step happens
 lib/collection.ts     Favorites and team, saved in the browser
