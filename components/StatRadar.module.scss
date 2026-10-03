@@ -1,0 +1,60 @@
+.radar {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  overflow: visible;
+}
+
+.ring {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1;
+
+  &:last-of-type {
+    fill: color-mix(in srgb, var(--raised) 60%, transparent);
+  }
+}
+
+.axis {
+  stroke: var(--line);
+  stroke-dasharray: 2 4;
+}
+
+.shape {
+  transform-origin: 150px 150px;
+  animation: bloom 0.9s cubic-bezier(0.2, 0.8, 0.2, 1.1) 0.15s both;
+}
+
+.area {
+  stroke: var(--type);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 6px 16px color-mix(in srgb, var(--type) 45%, transparent));
+}
+
+.dot {
+  fill: var(--surface);
+  stroke: var(--type);
+  stroke-width: 2.5;
+}
+
+.label {
+  fill: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.value {
+  fill: var(--text);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+@keyframes bloom {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+}

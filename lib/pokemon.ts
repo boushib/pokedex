@@ -50,3 +50,15 @@ export const getPokemon = (slug: string) => bySlug.get(slug) ?? null
 export const getPokemonById = (id: number) => byId.get(id) ?? null
 
 export const neighbours = (p: Pokemon) => ({ previous: getPokemonById(p.id - 1), next: getPokemonById(p.id + 1) })
+
+const sorted = (values: number[]) => values.sort((a, b) => a - b)
+const statValues = Object.fromEntries(
+  (['hp', 'attack', 'defense', 'spAttack', 'spDefense', 'speed'] as StatKey[]).map((k) => [k, sorted(allPokemon.map((p) => p.stats[k]))]),
+) as Record<StatKey, number[]>
+const totals = sorted(allPokemon.map((p) => p.total))
+
+/** Share of all Pokémon with a lower value, 0 to 100 */
+const percentile = (values: number[], v: number) => Math.round((values.filter((x) => x < v).length / values.length) * 100)
+
+export const statPercentile = (key: StatKey, value: number) => percentile(statValues[key], value)
+export const totalPercentile = (total: number) => percentile(totals, total)
