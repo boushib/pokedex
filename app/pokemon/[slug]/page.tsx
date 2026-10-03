@@ -72,8 +72,16 @@ export default async function PokemonPage(props: PageProps<'/pokemon/[slug]'>) {
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.art}>
-            {/* SVGs skip optimization anyway; for the PNG fallback, re-encoding bands the artwork's soft shading */}
-            <Image src={artwork(p.id)} className="artwork" alt={`Official artwork of ${p.name}`} width={475} height={475} priority unoptimized />
+            <Image
+              src={artwork(p.id)}
+              className="artwork"
+              alt={`Official artwork of ${p.name}`}
+              width={475}
+              height={475}
+              priority
+              quality={90}
+              sizes="(max-width: 760px) 80vw, 420px"
+            />
           </div>
           <div className={styles.intro}>
             <p className={styles.number}>

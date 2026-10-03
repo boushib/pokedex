@@ -1,11 +1,6 @@
 // Formatting and artwork helpers, free of the data snapshot so client components can import them cheaply
 
-import noVectorJson from '@/data/no-vector.json'
-
 export type StatKey = 'hp' | 'attack' | 'defense' | 'spAttack' | 'spDefense' | 'speed'
-
-/** The few Pokémon without vector artwork in the sprites repository */
-const noVector = new Set<number>(noVectorJson)
 
 export const STATS: { key: StatKey; label: string; short: string }[] = [
   { key: 'hp', label: 'HP', short: 'HP' },
@@ -31,13 +26,11 @@ export const GENERATIONS = [
 /** #0025 */
 export const dexNumber = (id: number) => `#${String(id).padStart(4, '0')}`
 
-const SPRITES = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other'
+/** The official artwork in high resolution (mostly 1200px and up), named by Pokédex number, e.g. 0025.png. The image optimizer resizes it */
+export const artwork = (id: number) => `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${String(id).padStart(4, '0')}.png`
 
-/** Official artwork as a 475px PNG. Used where a raster is needed: share images and structured data */
-export const artworkPng = (id: number) => `${SPRITES}/official-artwork/${id}.png`
-
-/** Vector artwork, sharp at any size, for the Pokémon that have it; the PNG for the rest */
-export const artwork = (id: number) => (noVector.has(id) ? artworkPng(id) : `${SPRITES}/dream-world/${id}.svg`)
+/** The same artwork as a light 475px PNG from PokéAPI, for share images and structured data */
+export const artworkPng = (id: number) => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
 
 /** "water-stone" → "Water Stone" */
 export const titleCase = (slug: string) => slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
