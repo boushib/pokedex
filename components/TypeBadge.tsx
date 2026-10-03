@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { titleCase } from '@/lib/pokemon'
+import { titleCase } from '@/lib/format'
 import { TYPE_COLORS } from '@/lib/types'
 
 import styles from './TypeBadge.module.scss'
