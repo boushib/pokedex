@@ -1,0 +1,93 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: var(--header);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: saturate(1.5) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 100%;
+}
+
+.nav {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+
+  a {
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    transition:
+      color 0.15s,
+      background 0.15s;
+
+    &:hover {
+      color: var(--text);
+      background: var(--raised);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.team {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 600;
+  transition: border-color 0.15s;
+
+  &:hover {
+    border-color: var(--text);
+  }
+}
+
+// Phones: the links move to a second row that scrolls sideways
+@media (max-width: 760px) {
+  .header {
+    height: auto;
+  }
+
+  .inner {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0 12px;
+    padding-top: 12px;
+  }
+
+  .nav {
+    order: 3;
+    flex: 0 0 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 8px -16px 0;
+    padding: 0 12px 10px;
+
+    a {
+      flex: none;
+    }
+  }
+
+  .team span:not(:last-child) {
+    display: none;
+  }
+}

@@ -1,0 +1,84 @@
+.card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --gx: 50%;
+  --gy: 30%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 50% 38%, color-mix(in srgb, var(--type) 22%, transparent) 0, transparent 62%),
+    var(--surface);
+  overflow: hidden;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition:
+    transform 0.25s ease-out,
+    box-shadow 0.25s,
+    border-color 0.25s;
+
+  // A soft shine that follows the pointer
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--gx) var(--gy), rgb(255 255 255 / 0.18), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.25s;
+    pointer-events: none;
+  }
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--type) 55%, var(--line));
+    box-shadow: 0 14px 34px -14px color-mix(in srgb, var(--type) 60%, transparent);
+
+    &::after {
+      opacity: 1;
+    }
+
+    .art img {
+      transform: translateY(-4px) scale(1.04);
+    }
+  }
+}
+
+.number {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  padding: 18px 18px 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 8px 10px rgb(0 0 0 / 0.18));
+    transition: transform 0.3s ease-out;
+  }
+}
+
+.info {
+  padding: 8px 16px 16px;
+}
+
+.name {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.types {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
