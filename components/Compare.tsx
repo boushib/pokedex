@@ -154,9 +154,11 @@ export function Compare({ items }: { items: CompareItem[] }) {
         <>
           <section className={styles.verdict} aria-label="Verdict">
             <div className={styles.verdictText}>
-              <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.crown}>
-                <path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z" />
-              </svg>
+              {leader && (
+                <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.crown}>
+                  <path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z" />
+                </svg>
+              )}
               {leader ? (
                 <p>
                   <strong>{leader.name}</strong> comes out ahead with <strong>{Math.abs(a.total - b.total)}</strong> more base stat points
