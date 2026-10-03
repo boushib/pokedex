@@ -26,7 +26,7 @@
 | <img src="docs/screenshots/pokemon.png" alt="Charizard's page" /><br />**Pokémon page**: animated hero with artwork, types, Pokédex entry and quick facts | <img src="docs/screenshots/pokemon-stats.png" alt="Base stats and type matchups" /><br />**Base stats and matchups**: a stat radar, ranks against every Pokémon and all 18 types |
 | <img src="docs/screenshots/evolution.png" alt="Eevee's evolutions" /><br />**Evolutions**: every branch, with how each one happens | <img src="docs/screenshots/type-chart.png" alt="The type chart" /><br />**Type chart**: an explorer for each type and the full chart with crosshair highlighting |
 | <img src="docs/screenshots/team.png" alt="The team builder" /><br />**Team builder**: up to six Pokémon, with weak spots across the team | <img src="docs/screenshots/compare.png" alt="Comparing Pokémon" /><br />**Compare**: a head-to-head arena with a verdict, stats duel and matchups |
-| <img src="docs/screenshots/home-dark.png" alt="The home page in dark mode" /><br />**Dark mode**, following the system or your choice | <img src="docs/screenshots/pokemon-dark.png" alt="A Pokémon page in dark mode" /><br />**Pokémon page** in dark mode |
+| <img src="docs/screenshots/home-light.png" alt="The home page in light mode, filtered to Dragon types" /><br />**Light mode**, one click away from the default dark | <img src="docs/screenshots/pokemon-light.png" alt="A Pokémon page in light mode" /><br />**Pokémon page** in light mode |
 
 ## About
 
@@ -40,7 +40,7 @@ I first built this in April 2022 with Create React App, fetching PokéAPI from t
 - **Team builder**: pick up to six, see which types hit several of them hard and which they cover, and share the team as a link
 - **Compare** two Pokémon head to head: a verdict, a stats duel, their stat shapes overlaid, the best attack type each way and their sizes to scale
 - **Favorites**, saved in the browser along with your team
-- Light and dark themes with no flash on load, keyboard-friendly pickers, and reduced motion respected
+- Dark by default with a light theme one click away (remembered, with no flash on load), keyboard-friendly pickers, and reduced motion respected
 
 ## SEO
 
