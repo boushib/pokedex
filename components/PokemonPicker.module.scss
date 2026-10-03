@@ -1,0 +1,44 @@
+.picker {
+  position: relative;
+
+  input {
+    width: 100%;
+  }
+}
+
+.list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 20;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}
+
+.active {
+  background: var(--raised);
+}
+
+.name {
+  flex: 1;
+  font-weight: 600;
+}
+
+.num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--faint);
+}
