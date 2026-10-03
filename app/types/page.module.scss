@@ -135,16 +135,6 @@
   border-radius: 50%;
 }
 
-.orbitRing2 {
-  width: calc(var(--r) * 1.2);
-  height: calc(var(--r) * 1.2);
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #e8613c, #f2c12e, #4caf50, #4fc3d8, #3d8fe0, #5a63d6, #9b5ac2, #e687d0, #e8613c);
-  opacity: 0.22;
-  filter: blur(28px);
-  animation: spin 18s linear infinite;
-}
-
 .orbitCenter {
   display: grid;
   place-items: center;

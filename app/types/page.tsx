@@ -47,7 +47,6 @@ export default function TypeChartPage() {
           {/* The 18 types orbiting a center, each counter-rotating to stay upright */}
           <div className={styles.orbit} aria-hidden="true">
             <span className={styles.orbitRing} />
-            <span className={styles.orbitRing2} />
             <div className={styles.orbitCenter}>
               <strong>18</strong>
               <span>types</span>
