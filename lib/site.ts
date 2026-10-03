@@ -1,5 +1,9 @@
-/** Where the Pokédex lives. Canonical links, the sitemap and share images are built from it. */
-export const siteUrl = (process.env.SITE_URL ?? 'http://localhost:3000').replace(/\/$/, '')
+/**
+ * Where the Pokédex lives. Canonical links, the sitemap and share images are built from it.
+ * SITE_URL wins (set it for a custom domain); otherwise the address Render or Vercel gives the deploy.
+ */
+const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+export const siteUrl = (process.env.SITE_URL || process.env.RENDER_EXTERNAL_URL || vercel || 'http://localhost:3000').replace(/\/$/, '')
 
 export const site = {
   name: 'Pokédex',
