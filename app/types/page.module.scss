@@ -133,28 +133,42 @@
 }
 
 .orbitCenter {
-  display: grid;
-  place-items: center;
-  width: 120px;
-  height: 120px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 132px;
+  height: 132px;
   border: 1px solid var(--line);
   border-radius: 50%;
   background: var(--surface);
   box-shadow: var(--shadow);
-  text-align: center;
+
+  // A fine inner ring
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    border: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+    border-radius: 50%;
+  }
 
   strong {
     font-family: var(--font-display), system-ui, sans-serif;
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 800;
-    line-height: 1;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
   }
 
   span {
-    margin-top: -18px;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.22em;
+    // Balance the trailing letter-spacing so the word sits centered
+    margin-right: -0.22em;
     text-transform: uppercase;
     color: var(--faint);
   }
