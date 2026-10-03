@@ -23,7 +23,7 @@
 
 | | |
 | --- | --- |
-| <img src="docs/screenshots/pokemon.png" alt="Charizard's page" /><br />**Pokémon page**: artwork, types, Pokédex entry, size and abilities | <img src="docs/screenshots/pokemon-stats.png" alt="Base stats and type matchups" /><br />**Base stats and matchups**: what it's weak to, resists and ignores |
+| <img src="docs/screenshots/pokemon.png" alt="Charizard's page" /><br />**Pokémon page**: animated hero with artwork, types, Pokédex entry and quick facts | <img src="docs/screenshots/pokemon-stats.png" alt="Base stats and type matchups" /><br />**Base stats and matchups**: a stat radar, ranks against every Pokémon and all 18 types |
 | <img src="docs/screenshots/evolution.png" alt="Eevee's evolutions" /><br />**Evolutions**: every branch, with how each one happens | <img src="docs/screenshots/type-chart.png" alt="The type chart" /><br />**Type chart**: all 18 types, attacking and defending |
 | <img src="docs/screenshots/team.png" alt="The team builder" /><br />**Team builder**: up to six Pokémon, with weak spots across the team | <img src="docs/screenshots/compare.png" alt="Comparing Pokémon" /><br />**Compare**: two Pokémon side by side |
 | <img src="docs/screenshots/home-dark.png" alt="The home page in dark mode" /><br />**Dark mode**, following the system or your choice | <img src="docs/screenshots/pokemon-dark.png" alt="A Pokémon page in dark mode" /><br />**Pokémon page** in dark mode |
@@ -35,7 +35,7 @@ I first built this in April 2022 with Create React App, fetching PokéAPI from t
 ## Features
 
 - **Browse** all 1,025 Pokémon: search by name, number or type, filter by type and generation, sort by number, name or base stat total. Filters live in the URL, so any view can be shared
-- **Pokémon pages** with official artwork, Pokédex entry, height, weight, abilities (hidden ones marked), base stats, type matchups, the full evolution family and links to the previous and next Pokémon
+- **Pokémon pages** with high-resolution official artwork, Pokédex entry, quick facts, abilities (hidden ones marked), base stats as a radar and bars ranked against every Pokémon, a matchup grid for all 18 types, the full evolution family and links to the previous and next Pokémon
 - **Type chart** of every attacking and defending combination
 - **Team builder**: pick up to six, see which types hit several of them hard and which they cover, and share the team as a link
 - **Compare** two Pokémon stat by stat, with size and the best type matchup each has against the other
