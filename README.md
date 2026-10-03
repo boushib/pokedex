@@ -4,6 +4,8 @@
 
 **Every Pokémon, at a glance: stats, abilities, evolutions and type matchups for all 1,025 Pokémon, plus a type chart, a team builder and side-by-side comparisons.**
 
+**[▶ Open the live site](https://pokedex-0nkm.onrender.com)**
+
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
