@@ -1,46 +1,36 @@
 {
   "name": "pokedex",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
+  "description": "A fast, offline-friendly Pokédex: all 1,025 Pokémon with stats, evolutions, matchups, a team builder and a compare view",
+  "scripts": {
+    "dev": "next dev",
+    "dev:agent": "PORT=3500 NEXT_DIST_DIR=.next-agent next dev -p 3500",
+    "build": "next build",
+    "build:agent": "NEXT_DIST_DIR=.next-build next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "data": "tsx scripts/fetch-data.ts"
+  },
+  "packageManager": "pnpm@10.33.0",
   "dependencies": {
-    "axios": "^0.27.2",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-scripts": "5.0.1"
+    "next": "16.3.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^28.1.6",
-    "@types/node": "^18.0.6",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "sass": "^1.54.0",
-    "typescript": "^4.7.4"
-  },
-  "scripts": {
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@types/node": "^24.19.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.3.8",
+    "prettier": "^3.9.9",
+    "sass": "^1.105.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.3"
   }
 }
