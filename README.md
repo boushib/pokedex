@@ -59,10 +59,9 @@ I first built this in April 2022 with Create React App, fetching PokéAPI from t
 | `pokemon.json` | Every species: name, category, generation, types, stats, abilities, size, evolution details and Pokédex entry |
 | `abilities.json` | Name and effect of every ability those Pokémon have |
 | `types.json` | The 18 types and the damage multiplier for each pairing |
-| `no-vector.json` | The few Pokémon without vector artwork |
 | `meta.json` | Where and when the snapshot was taken |
 
-The snapshot is committed, so the site builds without any network access. Run `pnpm data` again when new Pokémon come out. Artwork comes from the [PokeAPI/sprites](https://github.com/PokeAPI/sprites) repository: SVGs, sharp at any size, for the 936 Pokémon that have them, and the official PNG for the rest. Share images and structured data use the PNG.
+The snapshot is committed, so the site builds without any network access. Run `pnpm data` again when new Pokémon come out. The official artwork comes in high resolution (mostly 1,200px and up) from [HybridShivam/Pokemon](https://github.com/HybridShivam/Pokemon), named by Pokédex number, and the image optimizer resizes it for each spot. Share images and structured data use the lighter 475px copy from [PokeAPI/sprites](https://github.com/PokeAPI/sprites).
 
 ## Getting started
 
