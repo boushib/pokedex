@@ -31,7 +31,7 @@
 
   &:hover {
     border-color: color-mix(in srgb, var(--type) 55%, var(--line));
-    box-shadow: 0 14px 34px -14px color-mix(in srgb, var(--type) 60%, transparent);
+    box-shadow: 0 14px 30px -14px rgb(0 0 0 / 0.3);
 
     &::after {
       opacity: 1;

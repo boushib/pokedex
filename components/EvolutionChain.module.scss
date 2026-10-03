@@ -28,8 +28,6 @@
     background: var(--raised);
 
     .disc {
-      box-shadow: 0 10px 28px color-mix(in srgb, var(--t) 45%, transparent);
-
       img {
         transform: scale(1.1) rotate(-3deg);
       }

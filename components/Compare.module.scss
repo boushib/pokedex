@@ -290,7 +290,6 @@
   border-radius: 50%;
   background: linear-gradient(135deg, #f6c445, #e9a23b);
   fill: #fff;
-  box-shadow: 0 0 18px rgb(246 196 69 / 0.5);
 }
 
 .score {
@@ -452,9 +451,6 @@
     transform-origin: right;
   }
 
-  .lead {
-    box-shadow: 0 0 14px color-mix(in srgb, var(--a) 60%, transparent);
-  }
 }
 
 .barB span {
@@ -462,9 +458,6 @@
   transform-origin: left;
 }
 
-.barB .lead {
-  box-shadow: 0 0 14px color-mix(in srgb, var(--b) 60%, transparent);
-}
 
 // Radar
 

@@ -39,7 +39,6 @@
     height: 100%;
     border-radius: inherit;
     background: linear-gradient(90deg, color-mix(in srgb, var(--c) 55%, transparent), var(--c));
-    box-shadow: 0 0 12px color-mix(in srgb, var(--c) 55%, transparent);
     transform-origin: left;
     animation: grow 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
     animation-delay: calc(var(--i) * 70ms + 150ms);

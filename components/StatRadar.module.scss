@@ -29,7 +29,6 @@
   stroke: var(--type);
   stroke-width: 2.5;
   stroke-linejoin: round;
-  filter: drop-shadow(0 6px 16px color-mix(in srgb, var(--type) 45%, transparent));
 }
 
 .dot {
