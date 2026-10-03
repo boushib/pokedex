@@ -1,0 +1,46 @@
+.page {
+  padding-bottom: 16px;
+}
+
+.head {
+  padding: 40px 0 24px;
+  text-align: center;
+
+  > * {
+    animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.title {
+  margin-top: 12px;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.lead {
+  max-width: 520px;
+  margin: 12px auto 0;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
