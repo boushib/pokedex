@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og'
 
+import { MARK_DATA_URI } from '@/lib/brand'
 import { ogFont } from '@/lib/og'
 import { artwork } from '@/lib/pokemon'
 
@@ -15,9 +16,8 @@ export default async function Image() {
       <div style={{ width: '100%', height: '100%', display: 'flex', background: '#f6f7fb', fontFamily: 'Outfit', padding: 64, position: 'relative' }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: 560 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
-            <div style={{ width: 64, height: 64, borderRadius: 20, background: '#e3350d', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ width: 34, height: 34, borderRadius: 999, background: '#3a8ef6', border: '6px solid #fff' }} />
-            </div>
+            {/* eslint-disable-next-line jsx-a11y/alt-text */}
+            <img src={MARK_DATA_URI} width={68} height={68} />
             <div style={{ fontSize: 44, color: '#15171f' }}>Pokédex</div>
           </div>
           <div style={{ fontSize: 76, lineHeight: 1.02, color: '#15171f', marginTop: 36 }}>Every Pokémon, at a glance</div>
