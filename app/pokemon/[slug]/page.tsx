@@ -19,8 +19,10 @@ import styles from './page.module.scss'
 export const dynamicParams = false
 export const generateStaticParams = () => allPokemon.map((p) => ({ slug: p.slug }))
 
-const describe = (p: NonNullable<ReturnType<typeof getPokemon>>) =>
-  `${p.name} (${dexNumber(p.id)}) is a ${p.types.map(titleCase).join('/')}-type ${p.genus}. ${p.flavor}`.slice(0, 300)
+const describe = (p: NonNullable<ReturnType<typeof getPokemon>>) => {
+  const types = p.types.map(titleCase).join('/')
+  return `${p.name} (${dexNumber(p.id)}) is ${/^[AEIOU]/.test(types) ? 'an' : 'a'} ${types}-type ${p.genus}. ${p.flavor}`.slice(0, 300)
+}
 
 export async function generateMetadata(props: PageProps<'/pokemon/[slug]'>): Promise<Metadata> {
   const p = getPokemon((await props.params).slug)
