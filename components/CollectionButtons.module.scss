@@ -1,0 +1,21 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fav {
+  color: #e8456b;
+  border-color: color-mix(in srgb, #e8456b 45%, var(--line));
+}
+
+.note {
+  font-size: 13px;
+  color: var(--brand);
+}

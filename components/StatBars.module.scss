@@ -1,0 +1,59 @@
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 96px 40px 1fr;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+
+  dt {
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+.value {
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.track {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--raised);
+  overflow: hidden;
+
+  span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    transform-origin: left;
+    animation: grow 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.total {
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+
+  dt {
+    color: var(--text);
+    font-weight: 700;
+  }
+}
