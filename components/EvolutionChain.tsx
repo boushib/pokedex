@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import type { EvolutionNode } from '@/lib/evolution'
 import { artwork, dexNumber } from '@/lib/pokemon'
+import { TYPE_COLORS } from '@/lib/types'
 
 import styles from './EvolutionChain.module.scss'
 import { TypeBadge } from './TypeBadge'
@@ -11,8 +12,15 @@ function Stage({ node, current }: { node: EvolutionNode; current: number }) {
   const p = node.pokemon
   return (
     <li className={styles.stage}>
-      <Link href={`/pokemon/${p.slug}`} className={`${styles.mon} ${p.id === current ? styles.current : ''}`} aria-current={p.id === current ? 'page' : undefined}>
-        <Image src={artwork(p.id)} className="artwork" alt="" width={96} height={96} />
+      <Link
+        href={`/pokemon/${p.slug}`}
+        className={`${styles.mon} ${p.id === current ? styles.current : ''}`}
+        aria-current={p.id === current ? 'page' : undefined}
+        style={{ '--t': TYPE_COLORS[p.types[0]] } as React.CSSProperties}
+      >
+        <span className={styles.disc}>
+          <Image src={artwork(p.id)} className="artwork" alt="" width={120} height={120} />
+        </span>
         <span className={styles.num}>{dexNumber(p.id)}</span>
         <span className={styles.name}>{p.name}</span>
         <span className={styles.types}>
@@ -26,10 +34,7 @@ function Stage({ node, current }: { node: EvolutionNode; current: number }) {
           {node.next.map((child) => (
             <li key={child.pokemon.id} className={styles.branch}>
               <span className={styles.how}>
-                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                {child.how}
+                <span className={styles.pill}>{child.how}</span>
               </span>
               <ul>
                 <Stage node={child} current={current} />
