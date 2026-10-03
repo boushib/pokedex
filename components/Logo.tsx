@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import styles from './Logo.module.scss'
 
-/** An original mark: a single lens with a glint on a softly graded red tile */
+/** An original mark: a lens ring on a softly graded red tile */
 export function Mark({ size = 34 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 40 40" aria-hidden="true" className={styles.mark}>
@@ -13,9 +13,8 @@ export function Mark({ size = 34 }: { size?: number }) {
         </linearGradient>
       </defs>
       <rect x="2" y="2" width="36" height="36" rx="11" fill="url(#pokedex-mark)" />
-      <circle cx="20" cy="20" r="10.5" fill="#ffffff" />
-      <circle cx="20" cy="20" r="6.5" fill="#15171f" />
-      <circle cx="17.8" cy="17.8" r="1.9" fill="#ffffff" />
+      <circle cx="20" cy="20" r="9" fill="none" stroke="#ffffff" strokeWidth="3.5" />
+      <circle cx="20" cy="20" r="3.2" fill="#ffffff" />
     </svg>
   )
 }
